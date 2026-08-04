@@ -4,6 +4,9 @@ name: Update "runs.csv"
 
 on:
   workflow_dispatch:
+  schedule:
+  # Run daily at 0 UTC (10 AM AEST / 7PM EST)
+  - cron: '0 0 * * *'
   
 permissions:
   contents: write
