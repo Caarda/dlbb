@@ -4,7 +4,8 @@ name: Update "runs.csv" and "categories.csv"
 
 on:
   workflow_dispatch:
-  # Run daily at 0 UTC (10AM AEST / 7PM EST)
+  # This workflow automatically runs daily at 0 UTC (10AM AEST / 7PM EST).
+  # The sheet then updates using this refreshed data at approximately 12 UTC (10PM AEST / 7AM EST).
   schedule:
     - cron: '0 0 * * *'
   
