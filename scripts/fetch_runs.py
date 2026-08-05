@@ -1,6 +1,6 @@
 # Fetches runs from every category in the series using the speedrun.com api and writes them to runs.csv
 
-import requests, csv, pathlib, time, pprint
+import requests, csv, pathlib, time
 
 API = "https://www.speedrun.com/api/v1/"
 SERIES_ID = "5nk5epn9"
