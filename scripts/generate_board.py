@@ -87,7 +87,10 @@ with open("output/board.csv", "w", newline="", encoding="utf-8") as BoardFile:
             LastCategory = Category
         else: BoardCategoryHeader.append("")
 
-        if Subcategory: BoardSubcategoryHeader.append(Subcategory)
+        if Subcategory:
+            BoardSubcategoryHeader.append(Subcategory)
+        else:
+            BoardSubcategoryHeader.append("")
 
     BoardWriter.writerow(BoardGameHeader)
     BoardWriter.writerow(BoardCategoryHeader)
