@@ -1,6 +1,6 @@
 # Updates runs.csv from the speedrun.com API, using cached player and platform info where it exists.
 
-name: Update "runs.csv" and "categories.csv"
+name: Regenerate "board.csv"
 
 on:
   workflow_dispatch:
