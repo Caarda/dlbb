@@ -20,7 +20,7 @@ with open("output/runs.csv", "r", encoding="utf-8") as f:
 
 # Calculate values and write to file.
 with open("output/categories.csv", "w", newline="", encoding="utf-8") as f:
-    f.write("category_id,points,category_name\n")
+    f.write("category_id,points,display_name,game,category,subcategory\n")
 
     # The most runners in a single category.
     HighestRunnerCount = max(x[0] for x in RunnerCounts.values())
