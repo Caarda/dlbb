@@ -21,6 +21,7 @@ with open("output/runs.csv", "r", encoding="utf-8") as f:
 
 # Calculate values and write to file
 with open("output/categories.csv", "w", newline="", encoding="utf-8") as f:
+    f.write("category_id,points,cateogry_name")
     MaxRunnerCount = max(x[1] for x in RunnerCounts.values())
 
     for CategoryID in RunnerCounts:
