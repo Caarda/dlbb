@@ -67,7 +67,7 @@ with open("output/board.csv", "w", newline="", encoding="utf-8") as BoardFile:
     BoardWriter = csv.writer(BoardFile)
 
     # We need to structure the three top rows column by column for sheet styling to work properly.
-    BoardGameHeader = ["Rank", "Total Score", "Player"]
+    BoardGameHeader = ["Rank", "Points", "Player"]
     BoardCategoryHeader = ["", "", ""]
     BoardSubcategoryHeader = ["", "", ""]
 
