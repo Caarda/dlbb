@@ -1,6 +1,6 @@
 # Updates runs.csv from the speedrun.com API, using cached player and platform info where it exists.
 
-name: Update "runs.csv"
+name: Update "runs.csv" and "categories.csv"
 
 on:
   workflow_dispatch:
@@ -33,7 +33,10 @@ jobs:
           python -m pip install requests
           
       - name: Fetch new runs
-        run: python -u scripts/fetch.py
+        run: python -u scripts/fetch_new_runs.py
+
+      - name: Update category point values
+        run: python -u scripts/update_category_values.py
 
       - name: Commit updated files
         run: |
