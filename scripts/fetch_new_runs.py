@@ -30,7 +30,7 @@ def GetRawRuns(seriesID: str):
         # Get each game in the series
         response = requests.get(API + "/series/" + seriesID + "/games")
         data = response.json()
-        games = [x["id"] for x in data["data"]]
+        games = [x["id"] for x in sorted(data["data"], key=lambda x: (x["id"] == "m1mprj12", x["release-date"]))]   # Orders by release date with Category Extensions last
         
         for gameID in games:
             while True:
