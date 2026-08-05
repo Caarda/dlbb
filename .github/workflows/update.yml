@@ -38,12 +38,16 @@ jobs:
       - name: Update category point values
         run: python -u scripts/update_category_values.py
 
+      - name: Generate leaderboard
+        run: python -u scripts/generate_board.py
+
       - name: Commit updated files
         run: |
           git config user.name "dlbb"
           git config user.email "dlbb@users.noreply.github.com"
           git add output/runs.csv
           git add output/categories.csv
+          git add output/board.csv
           git add cache/platforms.csv
           git add cache/players.csv
           if git diff --cached --quiet; then
