@@ -25,7 +25,7 @@ with open("output/categories.csv", "r", encoding="utf-8") as CategoriesFile:
         next(CategoriesReader)
         next(RunsReader)
 
-        # We build a dict of dicts that accepts keys [Player][CategoryID] and returns the time of their run if it exists, else 0.
+        # We build a dict of dicts that accepts keys [Player][CategoryID] and returns the time of their best run (if it exists), else 0.
         # We also keep track of the World Record in each category for point calculations.
         Players = dict()
         Categories = dict()
@@ -34,14 +34,15 @@ with open("output/categories.csv", "r", encoding="utf-8") as CategoriesFile:
             Categories[CategoryID] = [0.0, int(MaxPoints), Game.lstrip(" "), Category, Subcategory]
 
         for run in RunsReader:
-            _, _, _, CategoryID, PlayerName, RunTime, _, _, _ = run
+            _, _, _, CategoryID, PlayerName, RunTime, _, _, _, _ = run
 
             if not PlayerName in Players.keys():
                 Players[PlayerName] = {"Rank": 0, "Total": 0, "Name": PlayerName}
                 for Category in Categories.keys(): Players[PlayerName][Category] = 0
 
             RunTime = float(RunTime)
-            Players[PlayerName][CategoryID] = float(RunTime)
+            if Players[PlayerName][CategoryID] == 0 or float(RunTime) < Players[PlayerName][CategoryID]:
+                Players[PlayerName][CategoryID] = float(RunTime)
 
             if RunTime < Categories[CategoryID][0] or not Categories[CategoryID][0]:
                 Categories[CategoryID][0] = RunTime

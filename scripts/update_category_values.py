@@ -10,7 +10,7 @@ with open("output/runs.csv", "r", encoding="utf-8") as f:
     RunnerCounts = dict()
 
     for run in reader:
-        GameName, CategoryName, SubcategoryName, CategoryID, PlayerName, RunTime, RunDate, Platform, RunID = run
+        GameName, CategoryName, SubcategoryName, CategoryID, Player, RunTime, RunDate, Platform, IsEmualator, RunID = run
 
         # Add unseen categories.
         if CategoryID not in RunnerCounts:
@@ -32,4 +32,4 @@ with open("output/categories.csv", "w", newline="", encoding="utf-8") as f:
 
         PointValue = 20 + round(80 * math.log(PlayerCount, HighestRunnerCount))
 
-        f.write(f"{f'{CategoryID},':<27}{f'{PointValue},':<6}{f' | {ReadableCategoryName},':<80}{f'{GameName},'}{f'{CategoryName},'}{f'{SubcategoryName}'}\n")
+        f.write(f"{f'{CategoryID},':<27}{f'{PointValue},':<6}{f'{ReadableCategoryName},':<80}{f'{GameName},'}{f'{CategoryName},'}{f'{SubcategoryName}'}\n")
