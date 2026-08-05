@@ -25,5 +25,5 @@ with open("output/categories.csv", "w", newline="", encoding="utf-8") as f:
 
     for CategoryID in RunnerCounts:
         ReadableCategoryName, PlayerCount = RunnerCounts[CategoryID]
-        PointValue = round(100 * math.log(PlayerCount, MaxRunnerCount))
+        PointValue = 20 + round(80 * math.log(PlayerCount, MaxRunnerCount))
         f.write(f"{f'{CategoryID},':<27}{f'{PointValue},':<6}// {ReadableCategoryName}\n")
